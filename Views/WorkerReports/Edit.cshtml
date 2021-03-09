@@ -1,0 +1,59 @@
+﻿@model NBD.Models.WorkerReport
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 align="center">Edit Report</h1>
+
+<h4>WorkerReport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="EmployeeID" class="control-label"> Employee Name:</label>
+                <select asp-for="EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID" ></select>
+                <span asp-validation-for="EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hours" class="control-label"></label>
+                <input asp-for="Hours" class="form-control" />
+                <span asp-validation-for="Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Costs" class="control-label"></label>
+                <input asp-for="Costs" class="form-control" />
+                <span asp-validation-for="Costs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label"> Project Name:</label>
+                <select asp-for="ProjectID" class="form-control" asp-items="ViewBag.ProjectID" ></select>
+                <span asp-validation-for="ProjectID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskID" class="control-label">Task:</label>
+                <select asp-for="TaskID" class="form-control" asp-items="ViewBag.TaskID"></select>
+                <span asp-validation-for="TaskID" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-light" />
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

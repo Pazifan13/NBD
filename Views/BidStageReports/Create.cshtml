@@ -1,0 +1,66 @@
+﻿@model NBD.Models.BidStageReport
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 align="center">Create Bid Stage Report</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EstimatedBid" class="control-label"></label>
+                <input asp-for="EstimatedBid" class="form-control" />
+                <span asp-validation-for="EstimatedBid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualDesingHours" class="control-label"></label>
+                <input asp-for="ActualDesingHours" class="form-control" />
+                <span asp-validation-for="ActualDesingHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimatedDesingHours" class="control-label"></label>
+                <input asp-for="EstimatedDesingHours" class="form-control" />
+                <span asp-validation-for="EstimatedDesingHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualDesingCost" class="control-label"></label>
+                <input asp-for="ActualDesingCost" class="form-control" />
+                <span asp-validation-for="ActualDesingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimatedDesingCost" class="control-label"></label>
+                <input asp-for="EstimatedDesingCost" class="form-control" />
+                <span asp-validation-for="EstimatedDesingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hours" class="control-label"></label>
+                <input asp-for="Hours" class="form-control" />
+                <span asp-validation-for="Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remaining" class="control-label"></label>
+                <input asp-for="Remaining" class="form-control" />
+                <span asp-validation-for="Remaining" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label"></label>
+                <select asp-for="ProjectID" class="form-control" asp-items="ViewBag.ProjectID"></select>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <div>
+                <input type="submit" value="Create" class="btn btn-light" />
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

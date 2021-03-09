@@ -1,0 +1,62 @@
+﻿@model IEnumerable<NBD.Models.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Clients</h1>
+@if (User.IsInRole("Admin"))
+{
+    
+    <p>
+        <a class="btn btn-light" asp-action="Create">Create New</a>
+    </p>
+
+}
+
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card  align-content-center" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.FullName)</h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Position)&nbsp;of&nbsp;@Html.DisplayFor(modelItem => item.CompanyName), @Html.DisplayFor(modelItem => item.City.Name)</p>
+                @if (User.IsInRole("Admin"))
+                {
+                    
+                    <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+
+                }
+
+                @if (User.IsInRole("Manager"))
+                {
+                    
+                    <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+
+                }
+                <a class="btn btn-light card-link" asp-action="Details" asp-route-id="@item.ID">Details</a>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<div>
+    @if (User.IsInRole("Admin"))
+    {
+        
+        <a asp-area="" asp-controller="Projects" asp-action="Create" class="btn btn-light">Create a Project</a>
+    }
+
+    @if (User.IsInRole("Manager"))
+    {
+        
+        <a asp-area="" asp-controller="Projects" asp-action="Create" class="btn btn-light">Create a Project</a>
+    }
+
+
+
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>
+</div>
+
+

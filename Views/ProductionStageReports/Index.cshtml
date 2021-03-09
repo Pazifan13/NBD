@@ -1,0 +1,115 @@
+﻿@model IEnumerable<NBD.Models.ProductionStageReport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 align="center">Production Stage Reports</h1>
+
+<p>
+    <a class="btn btn-light" asp-action="Create">Create New</a>
+</p>
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card  align-content-center" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Project.Name)</h4>
+                <a class="btn btn-light card-link" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+
+                @if (User.IsInRole("Admin, Manager"))
+                {
+                    @:|
+                    <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger card-link" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                }
+
+
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstProdPlan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalCosttoDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActualMtl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstimatedDesingCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActuLaborPro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstLaborProdCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActuLaborDesingCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstLaborDesingCost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Project)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstProdPlan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCosttoDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualMtl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstimatedDesingCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActuLaborPro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstLaborProdCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActuLaborDesingCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EstLaborDesingCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

@@ -1,0 +1,97 @@
+﻿@model NBD.Models.Team
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 align="center">Details</h1>
+
+<div class="card-columns">
+    <div class="card  align-content-center " style="width:400px; height:500px;">
+        <div class="card-body">
+            <h4 class="card-title">Team Details</h4>
+            <dl class="card-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TeamName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TeamName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phase)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Phase)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Projects)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Projects.FirstOrDefault().Name)
+                </dd>
+
+
+            </dl>
+
+        </div>
+
+    </div>
+
+
+    <div class="card  align-content-center" style="width:400px; height:500px;">
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayFor(model => model.TeamName)</h4>
+            <p>
+                @foreach (var item in Model.TeamEmployees)
+                {
+                    @Html.DisplayFor(modelItem => item.Employee.FullName) <br/>
+                }
+
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+    
+
+<div>
+<a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+<a class="btn btn-danger" asp-action="Index">Back to List</a>
+</div>
+
+
+            @*<dd class="col-sm-10">
+                @{
+                    int empCount = Model.TeamEmployees.Count;
+                    if (empCount > 0)
+                    {
+                        string firstEmployee = Model.TeamEmployees.FirstOrDefault().Employee.FullName;
+                        if (empCount > 1)
+                        {
+                            string empList = "";
+                            var c = Model.TeamEmployees.ToList();
+                            for (int i = 1; i < empCount; i++)
+                            {
+                                empList += c[i].Employee.FullName + " <br />";
+                            }
+                            <a class="" role="button" data-toggle="collapse" href="#collapseCamper@(Model.ID)" aria-expanded="false" aria-controls="collapseCamper@(Model.ID)">
+                                @firstEmployee... <span class="badge badge-info">@empCount</span>
+                            </a>
+                            <div class="collapse" id="collapseCamper@(Model.ID)">
+                                @Html.Raw(empList)
+                            </div>
+                        }
+                        else
+                        {
+                            @firstEmployee
+                        }
+                    }
+                }
+            </dd>*@
+     

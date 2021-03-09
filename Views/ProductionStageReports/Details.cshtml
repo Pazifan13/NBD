@@ -1,0 +1,94 @@
+﻿@model NBD.Models.ProductionStageReport
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 align="center">Details</h1>
+
+<div class="card-columns align-content-center">
+    <div class="card  align-content-center" style="width:400px; height:500px;">
+        <div class="card-body">
+            <h4 class="card-title">Production Plan Details - Predicted</h4>
+
+            <dl class="card-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bid)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Bid)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstProdPlan)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstProdPlan)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstimatedDesingCost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstimatedDesingCost)
+                </dd>
+                
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstLaborProdCost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstLaborProdCost)
+                </dd>
+              
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstLaborDesingCost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstLaborDesingCost)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Project)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Project.Name)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="card  align-content-center" style="width:400px; height:500px;">
+        <div class="card-body">
+            <h4 class="card-title">Production Plan Details - Confirmed</h4>
+            <dl class="card-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ActualMtl)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ActualMtl)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ActuLaborPro)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ActuLaborPro)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ActuLaborDesingCost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ActuLaborDesingCost)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TotalCosttoDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TotalCosttoDate)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>
+</div>

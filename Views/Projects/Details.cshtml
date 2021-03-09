@@ -1,0 +1,171 @@
+﻿@model NBD.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+    NBD.Models.LabourRequirement labour = (NBD.Models.LabourRequirement)ViewBag.LaborRequirement;
+}
+
+    <h1 class="text-center">@Html.DisplayFor(model => model.Name)</h1>
+
+    <div class="card-columns align-content-center">
+        <div class="card  align-content-center" style="width:400px; height:500px;">
+            <div class="card-body">
+                <h4 class="card-title">Project Bid Details</h4>
+                <dl class="card-body">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProjBidDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProjBidDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EstStartDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EstStartDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EstEndDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EstEndDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EstAmount)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EstAmount)
+                    </dd>
+
+                </dl>
+
+            </div>
+
+        </div>
+        <div class="card  align-content-center" style="width:400px; height:500px;">
+            <div class="card-body">
+                <h4 class="card-title">Project Details</h4>
+                <dl class="card-body">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.StartDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.EndDate)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProjSite)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProjSite)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ActAmount)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ActAmount)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProjCurrentPhase)
+                    </dt>
+                    <dd class="font-italic">
+                        @Html.DisplayFor(model => model.ProjCurrentPhase)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TeamID)
+                    </dt>
+                     <dd>
+                            @Html.DisplayFor(model => model.Team.TeamName)
+                        </dd>
+                    
+
+
+                </dl>
+
+            </div>
+
+        </div>
+        <div class="card  align-content-center " style="width:400px; height:500px;">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayNameFor(model => model.ProjectLabours)</h4>
+                <dl>
+                  @foreach (var item in Model.ProjectLabours)
+                {
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.LabourRequirement.Task.Description)
+
+                    </dd>
+                    <dt>
+                        Estimated Date:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.LabourRequirement.EstDate)
+                    </dd>
+                    <dt>
+                        Estimated Hours:
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(modelItem => item.LabourRequirement.EstHours)
+                    </dd>
+
+
+
+                }
+                        </dl>
+
+            </div>
+
+        </div>
+
+        <div class="card  align-content-center " style="width:400px; height:500px;">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayNameFor(model => model.ProjectMaterials)</h4>
+                <dl>
+                  *@foreach (var item in Model.ProjectMaterials)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.MaterialRequirement.Inventory.Material.Description)
+
+            </dd>
+            <dt>
+                Installation Date:
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.MaterialRequirement.InstallDate)
+            </dd>
+            <dt>
+                Delivery Date:
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.MaterialRequirement.DeliveryDate)
+            </dd>
+            <dt>
+                Estimated Quantity
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.MaterialRequirement.EstQuantity)
+            </dd>
+
+        }*
+                </dl>
+
+            </div>
+
+
+
+        </div>
+    </div>
+  
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>

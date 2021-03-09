@@ -1,0 +1,68 @@
+﻿@model NBD.Models.WorkerReport
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <h1 align="center"> Worker Report Details</h1>
+
+<div class="card  align-content-center" style="width:400px; height:500px;">
+    <div class="card-body">
+        <h4 class="card-title">Worker Report Details</h4>
+        <dl class="card-body">
+            <dt>
+                @Html.DisplayNameFor(model => model.Employee) :
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Employee.FullName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours) :
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Costs) ($):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Costs)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ExtCosts) ($):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ExtCosts)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Project):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Project.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Task):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Task.Description)
+            </dd>
+
+
+        </dl>
+
+    </div>
+</div>
+<br/>
+<div>
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>
+</div>
+
+

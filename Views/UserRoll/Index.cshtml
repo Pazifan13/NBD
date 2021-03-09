@@ -1,0 +1,32 @@
+﻿@model IEnumerable<NBD.ViewModels.UserVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 align="center">User Role</h2>
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card  align-content-center" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.UserName)</h4>
+                <p>@Html.DisplayFor(modelItem => item.userRoles) </p>
+                <a class="btn btn-light card-link" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+  
+                    <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger card-link" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                
+
+
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>
+
+

@@ -1,0 +1,73 @@
+﻿@model NBD.Models.ProductionStageReport
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 align="center">Create Production Stage Report</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bid" class="control-label"></label>
+                <input asp-for="Bid" class="form-control" />
+                <span asp-validation-for="Bid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstProdPlan" class="control-label"></label>
+                <input asp-for="EstProdPlan" class="form-control" />
+                <span asp-validation-for="EstProdPlan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCosttoDate" class="control-label"></label>
+                <input asp-for="TotalCosttoDate" class="form-control" />
+                <span asp-validation-for="TotalCosttoDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActualMtl" class="control-label"></label>
+                <input asp-for="ActualMtl" class="form-control" />
+                <span asp-validation-for="ActualMtl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstimatedDesingCost" class="control-label"></label>
+                <input asp-for="EstimatedDesingCost" class="form-control" />
+                <span asp-validation-for="EstimatedDesingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActuLaborPro" class="control-label"></label>
+                <input asp-for="ActuLaborPro" class="form-control" />
+                <span asp-validation-for="ActuLaborPro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstLaborProdCost" class="control-label"></label>
+                <input asp-for="EstLaborProdCost" class="form-control" />
+                <span asp-validation-for="EstLaborProdCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActuLaborDesingCost" class="control-label"></label>
+                <input asp-for="ActuLaborDesingCost" class="form-control" />
+                <span asp-validation-for="ActuLaborDesingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstLaborDesingCost" class="control-label"></label>
+                <input asp-for="EstLaborDesingCost" class="form-control" />
+                <span asp-validation-for="EstLaborDesingCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label"></label>
+                <select asp-for="ProjectID" class ="form-control" asp-items="ViewBag.ProjectID"></select>
+            </div>
+            <div>
+                <input type="submit" value="Create" class="btn btn-light" />
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

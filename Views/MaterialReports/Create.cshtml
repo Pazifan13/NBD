@@ -1,0 +1,52 @@
+﻿@model NBD.Models.MaterialReport
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 align="center">Create Material Report</h1>
+
+<h4>Material Report</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="MaterialID" class="control-label"> Material Name:</label>
+                <select asp-for="MaterialID" class="form-control" asp-items="ViewBag.MaterialID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"> Quantity:</label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Costs" class="control-label">Cost ($):</label>
+                <input asp-for="Costs" class="form-control" />
+                <span asp-validation-for="Costs" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmployeeID" class="control-label"> Approved By:</label>
+                <select asp-for="EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label">Project Name:</label>
+                <select asp-for="ProjectID" class="form-control" asp-items="ViewBag.ProjectID"></select>
+            </div>
+
+            <div>
+                <input type="submit" value="Create" class="btn btn-light" />
+                <a class="btn btn-danger" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

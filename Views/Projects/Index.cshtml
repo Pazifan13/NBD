@@ -1,0 +1,47 @@
+﻿@model IEnumerable<NBD.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Projects</h1>
+
+
+    
+    <p><a class="btn btn-light" asp-action="Create">Create New</a></p>
+
+
+
+
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card  align-content-center" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Client.CompanyName)</p>
+
+                <a class="btn btn-light card-link" asp-action="Details" asp-route-id="@item.ID">Details</a>
+
+                
+                   
+                        <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                        <a class="btn btn-danger card-link" asp-action="Delete">Delete</a>
+
+                    
+
+                   
+
+
+                
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>
+
+
+
+

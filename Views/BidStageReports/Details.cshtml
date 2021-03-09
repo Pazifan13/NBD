@@ -1,0 +1,76 @@
+﻿@model NBD.Models.BidStageReport
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 align="center">Details</h1>
+
+<div class="card-columns align-content-center">
+    <div class="card  align-content-center" style="width:400px; height:500px;">
+        <div class="card-body">
+            <h4 class="card-title">Project Bid Details - Predicted</h4>
+
+            <dl class="card-body">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstimatedBid)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstimatedBid)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstimatedDesingHours)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstimatedDesingHours)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EstimatedDesingCost)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EstimatedDesingCost)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="card  align-content-center" style="width:400px; height:500px;">
+    <div class="card-body">
+        <h4 class="card-title">Project Bid Details - Confirmed</h4>
+        <dl class="card-body">
+            <dt>
+                @Html.DisplayNameFor(model => model.ActualDesingHours)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ActualDesingHours)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ActualDesingCost)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ActualDesingCost)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Remaining)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Remaining)
+            </dd>
+        </dl>
+    </div>
+</div>
+    </div>
+
+<div>
+    <a class="btn btn-light"asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>
+</div>
+
+
+

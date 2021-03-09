@@ -1,0 +1,81 @@
+﻿@model IEnumerable<NBD.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 align="center">Teams</h1>
+
+<p><a class="btn btn-light" asp-action="Create">Create New</a></p>
+
+
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card  align-content-center" style="width:400px">
+            <div class="card-body">
+                <h4 class="card-title">@Html.DisplayFor(modelItem => item.TeamName)</h4>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Phase)</p>
+
+                <a class="btn btn-light card-link" asp-action="Details" asp-route-id="@item.ID">Details</a>
+
+
+                @if (User.IsInRole("Admin, Manager"))
+                {
+                    @:|
+                    <a class="btn btn-light card-link" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a class="btn btn-danger card-link" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+
+                }
+
+
+
+
+
+            </div>
+        </div>
+    }
+</div>
+<a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>
+
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Phase)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TeamEmployees)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+
+
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-light" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                        }
+
+
+
+                        <a class="btn btn-light" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    </td>
+                </tr>
+
+
+    </table>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-danger">Back to Home</a>*@
+
+

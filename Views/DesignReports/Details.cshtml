@@ -1,0 +1,61 @@
+﻿@model NBD.Models.DesignReport
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 align="center">Design Report Details</h1>
+
+<div class="card  align-content-center" style="width:400px; height:500px;">
+    <div class="card-body">
+        <h4 class="card-title">Design Report Details</h4>
+        <dl class="card-body">
+            <dt>
+                @Html.DisplayNameFor(model => model.Project):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Project.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Stage):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Stage.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Hour):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Hour)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date):
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+            <dt>
+                Approved By:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Employee.FullName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Task)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Task.Description)
+            </dd>
+
+
+        </dl>
+
+    </div>
+
+</div>
+
+<div>
+    <a class="btn btn-light" asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a class="btn btn-danger" asp-action="Index">Back to List</a>
+</div>
